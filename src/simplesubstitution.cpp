@@ -4,7 +4,7 @@ namespace cryptoplusplus {
     string SimpleSubstitution::encrypt(string plainText) {
         string cipherText;
         for (char c : plainText) {
-            cipherText += isalpha(c) ? alphabet[toupper(c)] : c;
+            cipherText += isalpha(c) ? encryptMap[toupper(c)] : c;
         }
         return cipherText;
     }
@@ -12,7 +12,7 @@ namespace cryptoplusplus {
     string SimpleSubstitution::decrypt(string cipherText) {
         string plainText;
         for (char c : cipherText) {
-            plainText += isalpha(c) ? alphabet[toupper(c)] : c;
+            plainText += isalpha(c) ? decryptMap[toupper(c)] : c;
         }
         return plainText;
     }

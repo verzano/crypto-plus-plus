@@ -1,7 +1,5 @@
 #include "atbash.h"
 
-// TODO need to decide what to do about characters that shouldn't be in there
-// TODO encryption and decryption are identical, so fix that...
 namespace cryptoplusplus {
     Atbash::Atbash() : SimpleSubstitution({
             {'A', 'Z'}, {'B', 'Y'}, {'C', 'X'}, {'D', 'W'}, {'E', 'V'}, {'F', 'U'},

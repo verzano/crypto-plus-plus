@@ -3,7 +3,6 @@
 #define ALPHABET_SIZE 26
 #define ASCII_A_VALUE 65
 
-// TODO need to decide what to do about characters that shouldn't be in there
 namespace cryptoplusplus {
     int convertCharToInt(char c) {
         return toupper(c) - ASCII_A_VALUE;
