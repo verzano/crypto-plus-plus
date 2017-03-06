@@ -1,5 +1,6 @@
 #include "caesar.h"
 
+// TODO need to decide what to do about characters that shouldn't be in there
 namespace caesar {
     std::map<char, char> Caesar::encryptMap = {
             {'A', 'X'}, {'B', 'Y'}, {'C', 'Z'},

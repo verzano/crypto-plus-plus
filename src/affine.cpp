@@ -4,6 +4,7 @@
 #define ALPHABET_SIZE 26
 #define ASCII_A_VALUE 65
 
+// TODO need to decide what to do about characters that shouldn't be in there
 namespace affine {
     int convertCharToInt(char c);
     char convertIntToChar(int i);

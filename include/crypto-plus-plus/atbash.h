@@ -7,8 +7,7 @@
 namespace atbash {
     class Atbash {
     private:
-        static std::map<char, char> encryptMap;
-        static std::map<char, char> decryptMap;
+        static std::map<char, char> cipherMap;
 
     public:
         std::string encrypt(std::string plainText);
