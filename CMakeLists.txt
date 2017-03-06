@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(${PROJECT_SOURCE_DIR}/include/crypto-plus-plus)
 
 set(HEADER_FILES include/crypto-plus-plus/caesar.h)
-set(SOURCE_FILES src/caesar.cpp main.cpp)
+set(SOURCE_FILES src/caesar.cpp main.cpp src/atbash.cpp include/crypto-plus-plus/atbash.h)
 set(TEST_FILES test/caesar_test.cpp)
 
 add_library(${PROJECT_NAME}_lib ${HEADER_FILES})
