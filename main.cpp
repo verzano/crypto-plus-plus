@@ -6,33 +6,34 @@
 #include "atbash.h"
 #include "caesar.h"
 
+using namespace std;
 using namespace cryptoplusplus;
 
 int main() {
-    const std::string plainText = "This is some bullshit plainText";
-    std::cout << "===== Plain Text =====" << std::endl;
-    std::cout << plainText << std::endl << std::endl;
+    const string plainText = "This is some bullshit plainText";
+    cout << "===== Plain Text =====" << endl;
+    cout << plainText << endl << endl;
 
-    std::cout << "===== Affine =====" << std::endl;
+    cout << "===== Affine =====" << endl;
     Affine affine = Affine(5, 8);
-    std::string affineEncrypted = affine.encrypt(plainText);
-    std::cout << "encrypted : " << affineEncrypted << std::endl;
-    std::string affineDecrypted = affine.decrypt(affineEncrypted);
-    std::cout << "decrypted : " << affineDecrypted << std::endl << std::endl;
+    string affineEncrypted = affine.encrypt(plainText);
+    cout << "encrypted : " << affineEncrypted << endl;
+    string affineDecrypted = affine.decrypt(affineEncrypted);
+    cout << "decrypted : " << affineDecrypted << endl << endl;
 
-    std::cout << "===== Atbash =====" << std::endl;
+    cout << "===== Atbash =====" << endl;
     Atbash atbash = Atbash();
-    std::string atbashEncrypted = atbash.encrypt(plainText);
-    std::cout << "encrypted : " << atbashEncrypted << std::endl;
-    std::string atbashDecrypted = atbash.decrypt(atbashEncrypted);
-    std::cout << "decrypted : " << atbashDecrypted << std::endl << std::endl;
+    string atbashEncrypted = atbash.encrypt(plainText);
+    cout << "encrypted : " << atbashEncrypted << endl;
+    string atbashDecrypted = atbash.decrypt(atbashEncrypted);
+    cout << "decrypted : " << atbashDecrypted << endl << endl;
 
-    std::cout << "===== Caesar =====" << std::endl;
+    cout << "===== Caesar =====" << endl;
     Caesar caesar = Caesar();
-    std::string caesarEncrypted = caesar.encrypt(plainText);
-    std::cout << "encrypted : " << caesarEncrypted << std::endl;
-    std::string caesarDecrypted = caesar.decrypt(caesarEncrypted);
-    std::cout << "decrypted : " << caesarDecrypted << std::endl;
+    string caesarEncrypted = caesar.encrypt(plainText);
+    cout << "encrypted : " << caesarEncrypted << endl;
+    string caesarDecrypted = caesar.decrypt(caesarEncrypted);
+    cout << "decrypted : " << caesarDecrypted << endl;
 
     return EXIT_SUCCESS;
 }
