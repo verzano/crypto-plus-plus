@@ -2,14 +2,18 @@
 #define CRYPTO_PLUS_PLUS_CAESER_H
 
 #include <string>
-using std::string;
+#include <map>
 
 namespace caesar {
     class Caesar {
+    private:
+        static std::map<char, char> encryptMap;
+        static std::map<char, char> decryptMap;
+
     public:
-        string encrypt(const string& plainText);
-        string decrypt(const string& cipherText);
+        static std::string encrypt(std::string plainText);
+        static std::string decrypt(std::string cipherText);
     };
 }
 
-#endif //CRYPTO_PLUS_PLUS_CAESER_H
+#endif
