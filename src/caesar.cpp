@@ -28,7 +28,7 @@ namespace caesar {
     std::string Caesar::encrypt(std::string plainText) {
         std::string cipherText;
         for (char c : plainText) {
-            cipherText += encryptMap[std::toupper(c)];
+            cipherText += std::isalpha(c) ? encryptMap[std::toupper(c)] : c;
         }
         return cipherText;
     }
@@ -36,7 +36,7 @@ namespace caesar {
     std::string Caesar::decrypt(std::string cipherText) {
         std::string plainText;
         for (char c : cipherText) {
-            plainText += decryptMap[std::toupper(c)];
+            plainText += std::isalpha(c) ? decryptMap[std::toupper(c)] : c;
         }
         return plainText;
     }

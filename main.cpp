@@ -11,7 +11,7 @@ int main() {
 
     std::cout << "===== Affine =====" << std::endl;
     affine::Affine affine = affine::Affine(5, 8);
-    std::string affineEncrypted = affine.encrypt("affine cipher");
+    std::string affineEncrypted = affine.encrypt(plainText);
     std::cout << "encrypted : " << affineEncrypted << std::endl;
     std::string affineDecrypted = affine.decrypt(affineEncrypted);
     std::cout << "decrypted : " << affineDecrypted << std::endl << std::endl;

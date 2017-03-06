@@ -5,13 +5,8 @@
 #define ASCII_A_VALUE 65
 
 namespace affine {
-    int convertCharToInt(char c) {
-        return std::toupper(c) - ASCII_A_VALUE;
-    }
-
-    char convertIntToChar(int i) {
-        return char(i + ASCII_A_VALUE);
-    }
+    int convertCharToInt(char c);
+    char convertIntToChar(int i);
 
     Affine::Affine(int a, int b) {
         this->a = a;
@@ -29,7 +24,9 @@ namespace affine {
     std::string Affine::encrypt(std::string plainText) {
         std::string cipherText;
         for (char x : plainText) {
-            cipherText += convertIntToChar((a*convertCharToInt(x) + b)%ALPHABET_SIZE);
+            cipherText += std::isalpha(x)
+                          ? convertIntToChar((a*convertCharToInt(x) + b)%ALPHABET_SIZE)
+                          : x;
         }
         return cipherText;
     }
@@ -37,8 +34,18 @@ namespace affine {
     std::string Affine::decrypt(std::string cipherText) {
         std::string plainText;
         for (char y : cipherText) {
-            plainText += convertIntToChar((c*(convertCharToInt(y) - b)%ALPHABET_SIZE + ALPHABET_SIZE)%ALPHABET_SIZE);
+            plainText += std::isalpha(y)
+                         ? convertIntToChar((c*(convertCharToInt(y) - b)%ALPHABET_SIZE + ALPHABET_SIZE)%ALPHABET_SIZE)
+                         : y;
         }
         return plainText;
+    }
+
+    int convertCharToInt(char c) {
+        return std::toupper(c) - ASCII_A_VALUE;
+    }
+
+    char convertIntToChar(int i) {
+        return char(i + ASCII_A_VALUE);
     }
 }
