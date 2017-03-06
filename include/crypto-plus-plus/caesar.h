@@ -1,5 +1,5 @@
-#ifndef CRYPTO_PLUS_PLUS_CAESER_H
-#define CRYPTO_PLUS_PLUS_CAESER_H
+#ifndef CRYPTO_PLUS_PLUS_CAESAR_H
+#define CRYPTO_PLUS_PLUS_CAESAR_H
 
 #include <string>
 #include <map>
@@ -11,8 +11,8 @@ namespace caesar {
         static std::map<char, char> decryptMap;
 
     public:
-        static std::string encrypt(std::string plainText);
-        static std::string decrypt(std::string cipherText);
+        std::string encrypt(std::string plainText);
+        std::string decrypt(std::string cipherText);
     };
 }
 

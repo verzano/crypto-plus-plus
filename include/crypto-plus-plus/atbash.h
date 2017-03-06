@@ -11,8 +11,8 @@ namespace atbash {
         static std::map<char, char> decryptMap;
 
     public:
-        static std::string encrypt(std::string plainText);
-        static std::string decrypt(std::string cipherText);
+        std::string encrypt(std::string plainText);
+        std::string decrypt(std::string cipherText);
     };
 }
 
