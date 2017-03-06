@@ -1,22 +1,20 @@
 #ifndef CRYPTO_PLUS_PLUS_ATBASH_H
 #define CRYPTO_PLUS_PLUS_ATBASH_H
 
-#include "simple_substitution.h"
+#include "cipher.h"
 
 #include <string>
 #include <map>
 
-namespace simple_substitution {
-    namespace atbash {
-        class Atbash : public SimpleSubstitution{
-        private:
-            static std::map<char, char> cipherMap;
+namespace cryptoplusplus {
+    class Atbash : public Cipher<std::string, std::string> {
+    private:
+        static std::map<char, char> alphabet;
 
-        public:
-            std::string encrypt(std::string plainText);
-            std::string decrypt(std::string cipherText);
-        };
-    }
+    public:
+        std::string encrypt(std::string plainText);
+        std::string decrypt(std::string cipherText);
+    };
 }
 
 #endif

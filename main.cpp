@@ -1,14 +1,12 @@
 #include <iostream>
 
-#include "simple_substitution.h"
+#include "cipher.h"
 
 #include "affine.h"
 #include "atbash.h"
 #include "caesar.h"
 
-using namespace simple_substitution::affine;
-using namespace simple_substitution::atbash;
-using namespace simple_substitution::caesar;
+using namespace cryptoplusplus;
 
 int main() {
     const std::string plainText = "This is some bullshit plainText";

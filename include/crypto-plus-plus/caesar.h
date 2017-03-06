@@ -1,23 +1,20 @@
 #ifndef CRYPTO_PLUS_PLUS_CAESAR_H
 #define CRYPTO_PLUS_PLUS_CAESAR_H
 
-#include "simple_substitution.h"
+#include "cipher.h"
 
 #include <string>
 #include <map>
 
-namespace simple_substitution {
-    namespace caesar {
-        class Caesar : public SimpleSubstitution {
-        private:
-            static std::map<char, char> encryptMap;
-            static std::map<char, char> decryptMap;
+namespace cryptoplusplus {
+    class Caesar : public Cipher<std::string, std::string> {
+    private:
+        static std::map<char, char> alphabet;
 
-        public:
-            std::string encrypt(std::string plainText);
-            std::string decrypt(std::string cipherText);
-        };
-    }
+    public:
+        std::string encrypt(std::string plainText);
+        std::string decrypt(std::string cipherText);
+    };
 }
 
 #endif
