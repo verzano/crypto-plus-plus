@@ -1,19 +1,12 @@
 #ifndef CRYPTO_PLUS_PLUS_CAESAR_H
 #define CRYPTO_PLUS_PLUS_CAESAR_H
 
-#include "cipher.h"
-
-#include <string>
-#include <map>
+#include "simplesubstitution.h"
 
 namespace cryptoplusplus {
-    class Caesar : public Cipher<std::string, std::string> {
-    private:
-        static std::map<char, char> alphabet;
-
+    class Caesar : public SimpleSubstitution {
     public:
-        std::string encrypt(std::string plainText);
-        std::string decrypt(std::string cipherText);
+        Caesar();
     };
 }
 

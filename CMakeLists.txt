@@ -7,7 +7,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include/crypto-plus-plus)
 
 set(SOURCE_FILES
         main.cpp
-        src/atbash.cpp
         src/affine.cpp
-        src/caesar.cpp)
+        src/atbash.cpp
+        src/caesar.cpp
+        src/simplesubstitution.cpp)
 add_executable(${PROJECT_NAME}_exec ${SOURCE_FILES})
