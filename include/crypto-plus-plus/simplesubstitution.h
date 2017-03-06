@@ -8,7 +8,6 @@
 
 using namespace std;
 
-// TODO make this more like an AlphabeticSubstitution class that
 namespace cryptoplusplus {
     class SimpleSubstitution : public Cipher<string, string> {
     private:
