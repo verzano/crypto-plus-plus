@@ -5,8 +5,10 @@
 
 #include <string>
 
+using namespace std;
+
 namespace cryptoplusplus {
-    class Affine : public Cipher<std::string, std::string> {
+    class Affine : public Cipher<string, string> {
     private:
         int a;
         int b;
@@ -14,8 +16,8 @@ namespace cryptoplusplus {
 
     public:
         Affine(int a, int b);
-        std::string encrypt(std::string plainText);
-        std::string decrypt(std::string cipherText);
+        string encrypt(string plainText);
+        string decrypt(string cipherText);
     };
 }
 

@@ -6,15 +6,17 @@
 #include <map>
 #include <string>
 
+using namespace std;
+
 namespace cryptoplusplus {
-    class SimpleSubstitution : public Cipher<std::string, std::string> {
+    class SimpleSubstitution : public Cipher<string, string> {
     private:
-        std::map<char, char> alphabet;
+        map<char, char> alphabet;
 
     public:
-        SimpleSubstitution(std::map<char, char> alphabet): alphabet(alphabet) {};
-        std::string encrypt(std::string plainText);
-        std::string decrypt(std::string cipherText);
+        SimpleSubstitution(map<char, char> alphabet): alphabet(alphabet) {};
+        string encrypt(string plainText);
+        string decrypt(string cipherText);
     };
 }
 

@@ -6,7 +6,7 @@
 // TODO need to decide what to do about characters that shouldn't be in there
 namespace cryptoplusplus {
     int convertCharToInt(char c) {
-        return std::toupper(c) - ASCII_A_VALUE;
+        return toupper(c) - ASCII_A_VALUE;
     }
 
     char convertIntToChar(int i) {
@@ -26,20 +26,20 @@ namespace cryptoplusplus {
         }
     }
 
-    std::string Affine::encrypt(std::string plainText) {
-        std::string cipherText;
+    string Affine::encrypt(string plainText) {
+        string cipherText;
         for (char x : plainText) {
-            cipherText += std::isalpha(x)
+            cipherText += isalpha(x)
                           ? convertIntToChar((a*convertCharToInt(x) + b)%ALPHABET_SIZE)
                           : x;
         }
         return cipherText;
     }
 
-    std::string Affine::decrypt(std::string cipherText) {
-        std::string plainText;
+    string Affine::decrypt(string cipherText) {
+        string plainText;
         for (char y : cipherText) {
-            plainText += std::isalpha(y)
+            plainText += isalpha(y)
                          ? convertIntToChar((c*(convertCharToInt(y) - b)%ALPHABET_SIZE + ALPHABET_SIZE)%ALPHABET_SIZE)
                          : y;
         }
