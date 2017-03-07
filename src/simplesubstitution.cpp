@@ -1,4 +1,4 @@
-#include "simplesubstitution.h"
+#include "../include/simplesubstitution.h"
 
 namespace cryptoplusplus {
     string SimpleSubstitution::encrypt(string plainText) {

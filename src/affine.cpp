@@ -1,4 +1,4 @@
-#include "affine.h"
+#include "../include/affine.h"
 
 #define ALPHABET_SIZE 26
 #define ASCII_A_VALUE 65

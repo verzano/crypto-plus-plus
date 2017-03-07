@@ -1,4 +1,4 @@
-#include "atbash.h"
+#include "../include/atbash.h"
 
 namespace cryptoplusplus {
     Atbash::Atbash() : SimpleSubstitution({

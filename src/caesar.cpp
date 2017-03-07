@@ -1,4 +1,4 @@
-#include "caesar.h"
+#include "../include/caesar.h"
 
 namespace cryptoplusplus {
     Caesar::Caesar() : SimpleSubstitution({

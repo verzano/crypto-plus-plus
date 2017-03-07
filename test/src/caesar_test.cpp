@@ -1,5 +1,0 @@
-namespace caesar {
-namespace test {
-
-}
-}

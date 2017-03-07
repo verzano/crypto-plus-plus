@@ -3,12 +3,42 @@ project(crypto_plus_plus)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(lib/include/crypto-plus-plus)
+find_package(Threads REQUIRED)
 
-set(SOURCE_FILES
-        app/src/main.cpp
-        lib/src/affine.cpp
-        lib/src/atbash.cpp
-        lib/src/caesar.cpp
-        lib/src/simplesubstitution.cpp)
-add_executable(${PROJECT_NAME}_exec ${SOURCE_FILES})
+set(INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include)
+include_directories(${INCLUDE_DIRS})
+
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+add_library(${PROJECT_NAME} ${SRC_FILES})
+
+set(EXTERNAL_DIRS ${PROJECT_SOURCE_DIR}/ext)
+add_subdirectory(${EXTERNAL_DIRS}/gtest)
+
+#-------------------
+# Test
+#-------------------
+enable_testing()
+set(PROJECT_TEST_NAME ${PROJECT_NAME}_test)
+include_directories(${GTEST_INCLUDE_DIRS} ${INCLUDE_DIRS})
+
+file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
+add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
+add_dependencies(${PROJECT_TEST_NAME} googletest)
+
+
+if(NOT WIN32 OR MINGW)
+    target_link_libraries(${PROJECT_TEST_NAME}
+            ${GTEST_LIBS_DIR}/libgtest.a
+            ${GTEST_LIBS_DIR}/libgtest_main.a)
+else()
+    target_link_libraries(${PROJECT_TEST_NAME}
+            debug ${GTEST_LIBS_DIR}/DebugLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${CMAKE_FIND_LIBRARY_SUFFIXES}
+            optimized ${GTEST_LIBS_DIR}/ReleaseLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${CMAKE_FIND_LIBRARY_SUFFIXES})
+    target_link_libraries(${PROJECT_TEST_NAME}
+            debug ${GTEST_LIBS_DIR}/DebugLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${CMAKE_FIND_LIBRARY_SUFFIXES}
+            optimized ${GTEST_LIBS_DIR}/ReleaseLibs/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${CMAKE_FIND_LIBRARY_SUFFIXES})
+endif()
+
+target_link_libraries(${PROJECT_TEST_NAME} ${CMAKE_THREAD_LIBS_INIT})
+
+add_test(test1 ${PROJECT_TEST_NAME})
