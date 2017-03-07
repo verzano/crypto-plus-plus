@@ -5,8 +5,11 @@
 
 namespace cryptoplusplus {
     class Caesar : public SimpleSubstitution {
+    private:
+        static const map<char, char> encryptionAlphabet;
+        static const map<char, char> decryptionAlphabet;
     public:
-        Caesar();
+        Caesar() : SimpleSubstitution(encryptionAlphabet, decryptionAlphabet) {};
     };
 }
 

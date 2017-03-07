@@ -5,8 +5,10 @@
 
 namespace cryptoplusplus {
     class Atbash : public SimpleSubstitution {
+    private:
+        static const map<char, char> alphabet;
     public:
-        Atbash();
+        Atbash() : SimpleSubstitution(alphabet) {};
     };
 }
 
