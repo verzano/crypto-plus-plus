@@ -9,7 +9,7 @@ set(INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include)
 include_directories(${INCLUDE_DIRS})
 
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_library(${PROJECT_NAME} ${SRC_FILES} test/affine_test.cpp test/atbash_test.cpp)
+add_library(${PROJECT_NAME} ${SRC_FILES} test/affine_test.cpp test/atbash_test.cpp src/shiftcipher.cpp include/shiftcipher.h)
 
 set(EXTERNAL_DIRS ${PROJECT_SOURCE_DIR}/ext)
 add_subdirectory(${EXTERNAL_DIRS}/gtest)
