@@ -6,15 +6,15 @@ namespace cryptoplusplus {
     class CaesarTest : public testing::Test {
     protected:
         Caesar caesar = Caesar();
+        const string plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string cipherText = "XYZABCDEFGHIJKLMNOPQRSTUVW";
     };
 
     TEST_F(CaesarTest, EncryptOnlyAlpha) {
-        string plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        EXPECT_EQ("XYZABCDEFGHIJKLMNOPQRSTUVW", caesar.encrypt(plainText));
+        EXPECT_EQ(cipherText, caesar.encrypt(plainText));
     }
 
     TEST_F(CaesarTest, DecryptOnlyAlpha) {
-        string cipherText = "XYZABCDEFGHIJKLMNOPQRSTUVW";
-        EXPECT_EQ("ABCDEFGHIJKLMNOPQRSTUVWXYZ", caesar.decrypt(cipherText));
+        EXPECT_EQ(plainText, caesar.decrypt(cipherText));
     }
 }
