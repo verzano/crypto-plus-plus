@@ -1,7 +1,7 @@
-#include "../include/simplesubstitution.h"
+#include "substitutioncipher.h"
 
 namespace cryptoplusplus {
-    string SimpleSubstitution::encrypt(string plainText) {
+    string SubstitutionCipher::encrypt(string plainText) {
         string cipherText;
         for (char c : plainText) {
             cipherText += isalpha(c) ? encryptMap[toupper(c)] : c;
@@ -9,7 +9,7 @@ namespace cryptoplusplus {
         return cipherText;
     }
 
-    string SimpleSubstitution::decrypt(string cipherText) {
+    string SubstitutionCipher::decrypt(string cipherText) {
         string plainText;
         for (char c : cipherText) {
             plainText += isalpha(c) ? decryptMap[toupper(c)] : c;

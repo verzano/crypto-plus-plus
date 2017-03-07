@@ -1,14 +1,14 @@
 #ifndef CRYPTO_PLUS_PLUS_ATBASH_H
 #define CRYPTO_PLUS_PLUS_ATBASH_H
 
-#include "simplesubstitution.h"
+#include "substitutioncipher.h"
 
 namespace cryptoplusplus {
-    class Atbash : public SimpleSubstitution {
+    class Atbash : public SubstitutionCipher {
     private:
         static const map<char, char> alphabet;
     public:
-        Atbash() : SimpleSubstitution(alphabet) {};
+        Atbash() : SubstitutionCipher(alphabet) {};
     };
 }
 

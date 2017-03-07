@@ -1,5 +1,5 @@
-#ifndef CRYPTO_PLUS_PLUS_SIMPLE_SUBSTITUTION_H
-#define CRYPTO_PLUS_PLUS_SIMPLE_SUBSTITUTION_H
+#ifndef CRYPTO_PLUS_PLUS_CIPHER_H
+#define CRYPTO_PLUS_PLUS_CIPHER_H
 
 namespace cryptoplusplus {
     template <class P, class C> class Cipher {

@@ -1,5 +1,5 @@
-#ifndef CRYPTO_PLUS_PLUS_SIMPLESUBSTITUTION_H
-#define CRYPTO_PLUS_PLUS_SIMPLESUBSTITUTION_H
+#ifndef CRYPTO_PLUS_PLUS_SUBSTITUTIONCIPHER_H
+#define CRYPTO_PLUS_PLUS_SUBSTITUTIONCIPHER_H
 
 #include "cipher.h"
 
@@ -9,15 +9,15 @@
 using namespace std;
 
 namespace cryptoplusplus {
-    class SimpleSubstitution : public Cipher<string, string> {
+    class SubstitutionCipher : public Cipher<string, string> {
     private:
         map<char, char> encryptMap;
         map<char, char> decryptMap;
 
     public:
-        SimpleSubstitution(map<char, char> encryptMap) :
+        SubstitutionCipher(map<char, char> encryptMap) :
                 encryptMap(encryptMap), decryptMap(encryptMap) {};
-        SimpleSubstitution(map<char, char> encryptMap, map<char, char> decryptMap) :
+        SubstitutionCipher(map<char, char> encryptMap, map<char, char> decryptMap) :
                 encryptMap(encryptMap), decryptMap(decryptMap) {};
         string encrypt(string plainText);
         string decrypt(string cipherText);
