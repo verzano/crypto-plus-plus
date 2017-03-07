@@ -14,12 +14,9 @@ add_library(${PROJECT_NAME} ${SRC_FILES})
 set(EXTERNAL_DIRS ${PROJECT_SOURCE_DIR}/ext)
 add_subdirectory(${EXTERNAL_DIRS}/gtest)
 
-#-------------------
-# Test
-#-------------------
 enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME}_test)
-include_directories(${GTEST_INCLUDE_DIRS} ${INCLUDE_DIRS})
+include_directories(${GTEST_INCLUDE_DIRS})
 
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})

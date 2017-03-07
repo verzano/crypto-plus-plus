@@ -2,10 +2,14 @@
 
 #include "gtest/gtest.h"
 
-namespace cryptoplusplus {
-    TEST(encry_caeasr, encrypt) {
-        string plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Caesar caesar = Caesar();
-        EXPECT_EQ("XYZABCDEFGHIJKLMNOPQRSTUVW", caesar.encrypt(plainText));
-    }
+using namespace cryptoplusplus;
+
+class CaesarTest : public testing::Test {
+protected:
+    Caesar caesar = Caesar();
+};
+
+TEST_F(CaesarTest, EncryptOnlyAlpha) {
+    string plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    EXPECT_EQ("XYZABCDEFGHIJKLMNOPQRSTUVW", caesar.encrypt(plainText));
 }
