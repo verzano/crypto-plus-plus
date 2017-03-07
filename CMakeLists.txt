@@ -18,7 +18,7 @@ enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME}_test)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
+file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp ${SRC_FILES})
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
 
