@@ -12,25 +12,21 @@ namespace cryptoplusplus {
         const string cipherText = "INSXCHMRWBGLQVAFKPUZEJOTYD";
     };
 
-    TEST_F(AffineTest, APrimeCorrect) {
-        ASSERT_EQ(21, affine.calculateInverse(5, 26));
-    }
-
     // TODO DEPENDANT ON a=5 AND b=8
     TEST_F(AffineTest, E) {
-        ASSERT_EQ(7, affine.E('F'));
+        EXPECT_EQ(7, affine.E('F'));
     }
 
     // TODO DEPENDANT ON a=5 AND b=8
     TEST_F(AffineTest, D) {
-        ASSERT_EQ(5, affine.D('H'));
+        EXPECT_EQ(5, affine.D('H'));
     }
 
     TEST_F(AffineTest, EncryptOnlyAlpha) {
-        ASSERT_EQ(cipherText, affine.encrypt(plainText));
+        EXPECT_EQ(cipherText, affine.encrypt(plainText));
     }
 
     TEST_F(AffineTest, DecryptOnlyAlpha) {
-        ASSERT_EQ(plainText, affine.decrypt(cipherText));
+        EXPECT_EQ(plainText, affine.decrypt(cipherText));
     }
 }

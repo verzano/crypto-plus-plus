@@ -11,10 +11,10 @@ namespace cryptoplusplus {
     };
 
     TEST_F(AtbashTest, EncryptOnlyAlpha) {
-        ASSERT_EQ(cipherText, atbash.encrypt(plainText));
+        EXPECT_EQ(cipherText, atbash.encrypt(plainText));
     }
 
     TEST_F(AtbashTest, DecryptOnlyAlpha) {
-        ASSERT_EQ(plainText, atbash.decrypt(cipherText));
+        EXPECT_EQ(plainText, atbash.decrypt(cipherText));
     }
 }

@@ -1,7 +1,11 @@
-#include "../include/affine.h"
+#include "affine.h"
+
+#include "mathplusplus.h"
 
 #define ALPHABET_SIZE 26
 #define ASCII_A_VALUE 65
+
+using namespace mathplusplus;
 
 namespace cryptoplusplus {
     int convertCharToInt(char c) {
@@ -15,17 +19,7 @@ namespace cryptoplusplus {
     Affine::Affine(int a, int b) {
         this->a = a;
         this->b = b;
-        this->aPrime = calculateInverse(a, ALPHABET_SIZE);
-    }
-
-    int Affine::calculateInverse(int a, int m) {
-        int aModulo = a%m;
-        for (int i = 1; i < m; i++) {
-            if ((aModulo*i)%m == 1) {
-                return i;
-            }
-        }
-        return -1;
+        this->aPrime = modularInverse(a, ALPHABET_SIZE);
     }
 
     string Affine::encrypt(string plainText) {
@@ -47,12 +41,10 @@ namespace cryptoplusplus {
     }
 
     int Affine::E(char x) {
-        return (a*convertCharToInt(x) + b)%ALPHABET_SIZE;
+        return modulo(a*convertCharToInt(x) + b, ALPHABET_SIZE);
     }
 
     int Affine::D(char x) {
-        // TODO find a better way to do this
-        // basically what happens is that -(x)%m remains negative which is bad
-        return (aPrime*(convertCharToInt(x) - b)%ALPHABET_SIZE + ALPHABET_SIZE)%ALPHABET_SIZE;
+        return modulo(aPrime*(convertCharToInt(x) - b), ALPHABET_SIZE);
     }
 }

@@ -15,11 +15,8 @@ namespace cryptoplusplus {
     private:
         map<char, char> buildShiftedMap(int shift, vector<char> alphabet);
     public:
-        ShiftCipher(int shift, vector<char> alphabet) : SubstitutionCipher(buildShiftedMap(shift, alphabet),
-                                                                           buildShiftedMap(-shift, alphabet)) {}
+        ShiftCipher(int shift, vector<char> alphabet);
     };
 }
-
-
 
 #endif

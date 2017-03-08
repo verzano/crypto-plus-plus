@@ -25,9 +25,6 @@ namespace cryptoplusplus {
         int E(char x);
         // D(x) = a'(x - b)%m
         int D(char x);
-
-        // TODO migrate this somewhere else, a simple math class or use an external math lib...
-        static int calculateInverse(int a, int m);
     };
 }
 

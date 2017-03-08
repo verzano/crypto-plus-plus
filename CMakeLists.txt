@@ -5,11 +5,11 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)
 
-set(INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include)
+set(INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/include/mathplusplus)
 include_directories(${INCLUDE_DIRS})
 
-file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_library(${PROJECT_NAME} ${SRC_FILES})
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/mathplusplus/*.cpp)
+add_library(${PROJECT_NAME} ${SRC_FILES} src/mathplusplus/mathplusplus.cpp)
 
 set(EXTERNAL_DIRS ${PROJECT_SOURCE_DIR}/ext)
 add_subdirectory(${EXTERNAL_DIRS}/gtest)
@@ -18,7 +18,7 @@ enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME}_test)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp ${SRC_FILES})
+file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp ${PROJECT_SOURCE_DIR}/test/mathplusplus/*.cpp ${SRC_FILES})
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
 
