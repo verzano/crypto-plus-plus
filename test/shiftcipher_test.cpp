@@ -5,9 +5,9 @@
 namespace cryptoplusplus {
     class ShiftCipherTest : public testing::Test {
     protected:
+        ShiftCipher smallAlphabet = ShiftCipher(2, {'A', 'D', 'G', 'J', 'M'});
         const string smallAlphabetPlainText = "ADGJMADGJMADGJM";
         const string smallAlphabetCipherText = "GJMADGJMADGJMAD";
-        ShiftCipher smallAlphabet = ShiftCipher(2, {'A', 'D', 'G', 'J', 'M'});
     };
 
     TEST_F(ShiftCipherTest, SmallAlphabetEncrypt) {
