@@ -9,4 +9,3 @@ namespace cryptoplusplus {
             {'Y', 'B'}, {'Z', 'A'}
     };
 }
-
