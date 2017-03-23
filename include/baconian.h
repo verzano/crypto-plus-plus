@@ -1,10 +1,10 @@
 #ifndef CRYPTO_PLUS_PLUS_BACONIAN_H
 #define CRYPTO_PLUS_PLUS_BACONIAN_H
 
-#import "substitutioncipher.h"
+#include "substitutioncipher.h"
 
 namespace cryptoplusplus {
-    class Baconian : SubstitutionCipher {
+    class Baconian : public SubstitutionCipher {
     public:
         Baconian();
     };
