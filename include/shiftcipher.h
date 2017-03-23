@@ -13,9 +13,9 @@ using namespace std;
 namespace cryptoplusplus {
     class ShiftCipher : public SubstitutionCipher {
     private:
-        map<char, char> buildShiftedMap(int shift, vector<char> alphabet);
+        map<string, string> buildShiftedMap(int shift, vector<string> alphabet);
     public:
-        ShiftCipher(int shift, vector<char> alphabet);
+        ShiftCipher(int shift, vector<string> alphabet);
     };
 }
 

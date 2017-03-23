@@ -10,13 +10,12 @@ using namespace std;
 namespace cryptoplusplus {
     class SubstitutionCipher : public Cipher<string, string> {
     private:
-        map<char, char> encryptMap;
-        map<char, char> decryptMap;
+        map<string, string> encryptMap;
+        map<string, string> decryptMap;
 
     public:
-        SubstitutionCipher(map<char, char> encryptMap) :
-                encryptMap(encryptMap), decryptMap(encryptMap) {};
-        SubstitutionCipher(map<char, char> encryptMap, map<char, char> decryptMap) :
+        SubstitutionCipher(map<string, string> encryptMap) : encryptMap(encryptMap), decryptMap(encryptMap) {};
+        SubstitutionCipher(map<string, string> encryptMap, map<string, string> decryptMap) :
                 encryptMap(encryptMap), decryptMap(decryptMap) {};
         string encrypt(string plainText);
         string decrypt(string cipherText);
