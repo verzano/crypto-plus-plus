@@ -10,22 +10,22 @@ using namespace std;
 // TODO allow specifying of the alphabet somehow as this relies on ASCII and the English alphabet
 // TODO better names for these ints, it's whats used by the formulas but still...
 namespace cryptoplusplus {
-    class Affine : public Cipher<string, string> {
-    private:
-        int a;
-        int b;
-        int aPrime;
-    public:
-        Affine(int a, int b);
-        string encrypt(string plainText);
-        string decrypt(string cipherText);
+class Affine : public Cipher<string, string> {
+ private:
+  int a;
+  int b;
+  int aPrime;
+ public:
+  Affine(int a, int b);
+  string encrypt(string plainText);
+  string decrypt(string cipherText);
 
-        // TODO these could REALLY use better names but meh
-        // E(x) = (a*x + b)%m
-        int E(char x);
-        // D(x) = a'(x - b)%m
-        int D(char x);
-    };
+  // TODO these could REALLY use better names but meh
+  // E(x) = (a*x + b)%m
+  int E(char x);
+  // D(x) = a'(x - b)%m
+  int D(char x);
+};
 }
 
 #endif

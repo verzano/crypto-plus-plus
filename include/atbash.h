@@ -4,10 +4,10 @@
 #include "substitutioncipher.h"
 
 namespace cryptoplusplus {
-    class Atbash : public SubstitutionCipher {
-    public:
-        Atbash();
-    };
+class Atbash : public SubstitutionCipher {
+ public:
+  Atbash();
+};
 }
 
 #endif

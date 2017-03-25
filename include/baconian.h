@@ -4,10 +4,10 @@
 #include "substitutioncipher.h"
 
 namespace cryptoplusplus {
-    class Baconian : public SubstitutionCipher {
-    public:
-        Baconian();
-    };
+class Baconian : public SubstitutionCipher {
+ public:
+  Baconian();
+};
 }
 
 #endif

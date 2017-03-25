@@ -4,10 +4,10 @@
 #include "shiftcipher.h"
 
 namespace cryptoplusplus {
-    class Caesar : public ShiftCipher {
-    public:
-        Caesar();
-    };
+class Caesar : public ShiftCipher {
+ public:
+  Caesar();
+};
 }
 
 #endif

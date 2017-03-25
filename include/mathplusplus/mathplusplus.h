@@ -3,8 +3,8 @@
 
 // TODO migrate this to it's own library...
 namespace mathplusplus {
-    int modulo(int a, int b);
-    int modularInverse(int a, int m);
+int modulo(int a, int b);
+int modularInverse(int a, int m);
 }
 
 #endif

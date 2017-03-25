@@ -4,10 +4,10 @@
 #include "shiftcipher.h"
 
 namespace cryptoplusplus {
-    class Rot13 : public ShiftCipher {
-    public:
-        Rot13();
-    };
+class Rot13 : public ShiftCipher {
+ public:
+  Rot13();
+};
 }
 
 #endif
