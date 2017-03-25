@@ -12,10 +12,11 @@ using namespace std;
 namespace cryptoplusplus {
 class ColumnarTransposition : public Cipher<string, string> {
  private:
-  map<int, int> swapMap;
+  map<unsigned long, unsigned long> encryptMap;
+  map<unsigned long, unsigned long> decryptMap;
 
  public:
-  ColumnarTransposition(map<int, int> swapMap) : swapMap(swapMap) {};
+  ColumnarTransposition(map<unsigned long, unsigned long> swaps);
   string encrypt(string plainText);
   string decrypt(string cipherText);
 };
