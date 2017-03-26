@@ -13,12 +13,13 @@ ColumnarTransposition::ColumnarTransposition(map<unsigned long, unsigned long> s
 
 string ColumnarTransposition::encrypt(string plainText) {
   unsigned long plainTextLength = plainText.length();
-  unsigned long cipherLength = plainTextLength + encryptMap.size() - (plainTextLength % encryptMap.size());
+  unsigned long mapSize = encryptMap.size();
+  unsigned long cipherLength = plainTextLength + (plainTextLength % mapSize);
   // TODO pad the cipher text with random chars if it isn't the correct length based on the length of the encrypt map
   string cipherText(cipherLength, ' ');
 
   for (unsigned long i = 0; i < plainTextLength; i++) {
-    unsigned long newPos = encryptMap[i] + (i / plainTextLength) * plainTextLength;
+    unsigned long newPos = encryptMap[i % mapSize] + (i / mapSize) * mapSize;
     cipherText[newPos] = plainText[i];
   }
   return cipherText;
@@ -27,10 +28,11 @@ string ColumnarTransposition::encrypt(string plainText) {
 string ColumnarTransposition::decrypt(string cipherText) {
   unsigned long cipherTextLength = cipherText.length();
   // TODO instantiate plainText???
-  string plainText;
+  string plainText(cipherTextLength, ' ');
 
   for (unsigned long i = 0; i < cipherTextLength; i++) {
-    unsigned long newPos = decryptMap[i] + (i / cipherTextLength) * cipherTextLength;
+    unsigned long mapSize = decryptMap.size();
+    unsigned long newPos = decryptMap[i % mapSize] + (i / mapSize) * mapSize;
     plainText[newPos] = cipherText[i];
   }
   return plainText;
